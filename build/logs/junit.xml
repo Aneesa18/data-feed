@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites>
+  <testsuite name="/home/aneesa/Desktop/PhPStormProjects/private/phpunit.xml.dist" tests="5" assertions="7" errors="0" failures="0" skipped="0" time="0.018381">
+    <testsuite name="Application Test Suite" tests="5" assertions="7" errors="0" failures="0" skipped="0" time="0.018381">
+      <testsuite name="App\Tests\Command\Unit\ProcessXmlUnitTest" file="/home/aneesa/Desktop/PhPStormProjects/private/tests/Command/Unit/ProcessXmlUnitTest.php" tests="5" assertions="7" errors="0" failures="0" skipped="0" time="0.018381">
+        <testcase name="testConfigure" file="/home/aneesa/Desktop/PhPStormProjects/private/tests/Command/Unit/ProcessXmlUnitTest.php" line="30" class="App\Tests\Command\Unit\ProcessXmlUnitTest" classname="App.Tests.Command.Unit.ProcessXmlUnitTest" assertions="2" time="0.006820"/>
+        <testcase name="testExecuteWithInvalidStorage" file="/home/aneesa/Desktop/PhPStormProjects/private/tests/Command/Unit/ProcessXmlUnitTest.php" line="36" class="App\Tests\Command\Unit\ProcessXmlUnitTest" classname="App.Tests.Command.Unit.ProcessXmlUnitTest" assertions="1" time="0.008116"/>
+        <testcase name="testExecuteWithNonExistentXmlFile" file="/home/aneesa/Desktop/PhPStormProjects/private/tests/Command/Unit/ProcessXmlUnitTest.php" line="49" class="App\Tests\Command\Unit\ProcessXmlUnitTest" classname="App.Tests.Command.Unit.ProcessXmlUnitTest" assertions="1" time="0.000412"/>
+        <testcase name="testExecuteWithInvalidXml" file="/home/aneesa/Desktop/PhPStormProjects/private/tests/Command/Unit/ProcessXmlUnitTest.php" line="59" class="App\Tests\Command\Unit\ProcessXmlUnitTest" classname="App.Tests.Command.Unit.ProcessXmlUnitTest" assertions="1" time="0.000375"/>
+        <testcase name="testExecuteSuccessfully" file="/home/aneesa/Desktop/PhPStormProjects/private/tests/Command/Unit/ProcessXmlUnitTest.php" line="70" class="App\Tests\Command\Unit\ProcessXmlUnitTest" classname="App.Tests.Command.Unit.ProcessXmlUnitTest" assertions="2" time="0.002658"/>
+      </testsuite>
+    </testsuite>
+  </testsuite>
+</testsuites>
