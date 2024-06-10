@@ -16,7 +16,7 @@ MySQL is used as a default database. However, different data storages can be use
 - adding the storage as an argument while executing the command
 
 **Usage:**
-1. Clone the repository: ``` git clone https://github.com/Aneesa18/xml-to-database.git ```
+1. Clone the repository: ``` git clone https://github.com/Aneesa18/data-feed.git ```
 2. In the project directory, install dependencies: ``` composer install ```
 3. Update 'DATABASE_URL' in the .env file to an actual database url
 4. Execute the command (default argument 'mysql'): ``` php bin/console app:process-xml ```
