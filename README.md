@@ -15,13 +15,6 @@ MySQL is used as a default database. However, different data storages can be use
 - adding them to the "addStorage" method of the "StorageRegistry" service in the "services.yaml" and
 - adding the storage as an argument while executing the command
 
-**Usage:**
-1. Clone the repository: ``` git clone https://github.com/Aneesa18/data-feed.git ```
-2. In the project directory, install dependencies: ``` composer install ```
-3. Update 'DATABASE_URL' in the .env file to an actual database url
-4. Execute the command (default argument 'mysql'): ``` php bin/console app:process-xml ```
-5. To use a different datastorage that is added to the StorageRegistry, use it as an argument to the command: ``` php bin/console app:process-xml sqlite ```
-
 **Logging:**
 - There is a new handler created in monolog.yaml to log the xml errors
 - The logfile can be found in var/log/xml_processor.log
@@ -29,6 +22,18 @@ MySQL is used as a default database. However, different data storages can be use
 **XML file:**
 - The xml file can be changed by using the parameter "xml_file" in the services.yaml
 - The feed.xml contains elements with mixed cases (snake_case and UpperCamelCase) which are converted to camelCase in the MySQLStorage.php file
+
+**Usage:**
+1. Clone the repository: ``` git clone https://github.com/Aneesa18/data-feed.git ```
+2. In the project directory, install dependencies: ``` composer install ```
+3. Update 'DATABASE_URL' in the .env file to an actual database url
+4. Execute the command (default argument 'mysql'): ``` php bin/console app:process-xml ```
+5. To use a different datastorage that is added to the StorageRegistry, use it as an argument to the command: ``` php bin/console app:process-xml sqlite ```
+
+**Testing:**
+- Integration test can be executed using ``` vendor/bin/phpunit tests/Command/Integration/ProcessXmlCommandIntegrationTest.php ```
+- Unit test can be executed using ``` vendor/bin/phpunit tests/Command/Unit/ProcessXmlCommandUnitTest.php ```
+
 
 **Note**
 - The command now fails on execution. This failure is the expected behaviour as there is no actual database connected. After executing the command, the reason for the failure can be checked in the var/log/xml_processor.log.
