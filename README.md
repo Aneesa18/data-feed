@@ -28,4 +28,8 @@ MySQL is used as a default database. However, different data storages can be use
 
 **XML file:**
 - The xml file can be changed by using the parameter "xml_file" in the services.yaml
-- The feed.xml contains elements with mixed cases (snake_case and UpperCamelCase) which are converted to camelCase in the MySQLStorage.php file 
+- The feed.xml contains elements with mixed cases (snake_case and UpperCamelCase) which are converted to camelCase in the MySQLStorage.php file
+
+**Note**
+- The command now fails on execution. This failure is the expected behaviour as there is no actual database connected. After executing the command, the reason for the failure can be checked in the var/log/xml_processor.log.
+- Also, the repository has two contributors. This is because I created and edited the README.md file on the web in github using my Aneesa18 account. However, my PHPStorm which I used to push the code was logged into my other github account Aneesa-18. This can be checked in the commits.
