@@ -3,36 +3,22 @@
 namespace App\Storage;
 
 use InvalidArgumentException;
-use RuntimeException;
-use Symfony\Component\DependencyInjection\ContainerInterface;
 
 class StorageRegistry
 {
-    private ContainerInterface $container;
-    private array $storages = [];
+    private array $storages;
 
-    public function __construct(ContainerInterface $container)
+    public function __construct(array $storages)
     {
-        $this->container = $container;
+        $this->storages = $storages;
     }
 
-    public function addStorage(string $name, string $serviceId): void
+    public function getStorage(string $type): StorageInterface
     {
-        $this->storages[$name] = $serviceId;
-    }
-
-    public function getStorage(string $name): StorageInterface
-    {
-        if (!isset($this->storages[$name])) {
-            throw new InvalidArgumentException("Storage type '$name' is not registered.");
+        if (!isset($this->storages[$type])) {
+            throw new InvalidArgumentException("Storage type '$type' is not registered.");
         }
 
-        $storage = $this->container->get($this->storages[$name]);
-
-        if (!$storage instanceof StorageInterface) {
-            throw new RuntimeException("Service '{$this->storages[$name]}' does not implement StorageInterface.");
-        }
-
-        return $storage;
+        return $this->storages[$type];
     }
 }

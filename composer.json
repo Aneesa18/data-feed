@@ -9,6 +9,8 @@
         "ext-iconv": "*",
         "ext-libxml": "*",
         "ext-simplexml": "*",
+        "ext-xmlreader": "*",
+        "ext-dom": "*",
         "doctrine/annotations": "^2.0",
         "doctrine/doctrine-bundle": "^2.12",
         "doctrine/orm": "^3.2",

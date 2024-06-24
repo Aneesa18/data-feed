@@ -20,14 +20,14 @@ class Item
     #[ORM\Column(type: "string", length: 255)]
     private string $name;
 
-    #[ORM\Column(type: "array", nullable: true)]
-    private ?array $description;
+    #[ORM\Column(type: "string", nullable: true)]
+    private ?string $description;
 
     #[ORM\Column(type: "string", length: 255)]
     private string $shortdesc;
 
-    #[ORM\Column(type: "decimal", scale: 4)]
-    private float $price;
+    #[ORM\Column(type: "decimal", scale: 4, nullable: true)]
+    private ?float $price;
 
     #[ORM\Column(type: "string", length: 255)]
     private string $link;
@@ -38,20 +38,20 @@ class Item
     #[ORM\Column(type: "string", length: 255)]
     private string $brand;
 
-    #[ORM\Column(type: "integer")]
-    private int $rating;
+    #[ORM\Column(type: "integer", nullable: true)]
+    private ?int $rating;
 
-    #[ORM\Column(type: "string", length: 255)]
-    private string $caffeineType;
+    #[ORM\Column(type: "string", length: 255, nullable: true)]
+    private ?string $caffeineType;
 
-    #[ORM\Column(type: "integer")]
-    private int $count;
+    #[ORM\Column(type: "integer", nullable: true)]
+    private ?int $count;
 
-    #[ORM\Column(type: "boolean")]
-    private bool $flavored;
+    #[ORM\Column(type: "boolean", nullable: true)]
+    private ?bool $flavored;
 
-    #[ORM\Column(type: "boolean")]
-    private bool $seasonal;
+    #[ORM\Column(type: "boolean", nullable: true)]
+    private ?bool $seasonal;
 
     #[ORM\Column(type: "boolean")]
     private bool $instock;
@@ -95,12 +95,12 @@ class Item
         return $this;
     }
 
-    public function getDescription(): array|null
+    public function getDescription(): ?string
     {
         return $this->description;
     }
 
-    public function setDescription(array|null $description): Item
+    public function setDescription(null|string $description): Item
     {
         $this->description = $description;
         return $this;
@@ -117,12 +117,12 @@ class Item
         return $this;
     }
 
-    public function getPrice(): float
+    public function getPrice(): ?float
     {
         return $this->price;
     }
 
-    public function setPrice(float $price): Item
+    public function setPrice(null|float $price): Item
     {
         $this->price = $price;
         return $this;
@@ -172,45 +172,45 @@ class Item
         return $this;
     }
 
-    public function getRating(): int
+    public function getRating(): ?int
     {
         return $this->rating;
     }
 
-    public function setRating(int $rating): Item
+    public function setRating(null|int $rating): Item
     {
         $this->rating = $rating;
         return $this;
     }
 
-    public function getCaffeineType(): string
+    public function getCaffeineType(): ?string
     {
         return $this->caffeineType;
     }
 
-    public function setCaffeineType(string $caffeineType): Item
+    public function setCaffeineType(null|string $caffeineType): Item
     {
         $this->caffeineType = $caffeineType;
         return $this;
     }
 
-    public function getCount(): int
+    public function getCount(): ?int
     {
         return $this->count;
     }
 
-    public function setCount(int $count): Item
+    public function setCount(null|int $count): Item
     {
         $this->count = $count;
         return $this;
     }
 
-    public function getFlavored(): bool
+    public function getFlavored(): ?bool
     {
         return $this->flavored;
     }
 
-    public function setFlavored(bool $flavored): Item
+    public function setFlavored(null|bool $flavored): Item
     {
         $this->flavored = $flavored;
         return $this;
@@ -227,12 +227,12 @@ class Item
         return $this;
     }
 
-    public function getSeasonal(): bool
+    public function getSeasonal(): ?bool
     {
         return $this->seasonal;
     }
 
-    public function setSeasonal(bool $seasonal): Item
+    public function setSeasonal(null|bool $seasonal): Item
     {
         $this->seasonal = $seasonal;
         return $this;
