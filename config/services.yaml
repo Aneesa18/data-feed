@@ -1,6 +1,6 @@
 # https://symfony.com/doc/current/best_practices.html#use-parameters-for-application-configuration
 parameters:
-    xml_file: '%kernel.project_dir%/src/fixtures/feed.xml'
+    file_path: '%kernel.project_dir%/src/fixtures/feed.xml'
 
 services:
     # default configuration for services in *this* file
@@ -17,23 +17,31 @@ services:
             - '../src/Entity/'
             - '../src/Kernel.php'
 
+    # new file processors can be introduced by using tags to support open/closed principle
+    # this makes it open for extension and closed for modification
+    App\Service\FileProcessing\XmlFileProcessor:
+        tags:
+            - {name: 'app.file_processor'}
+
+    App\Service\FileProcessing\FileProcessorFactory:
+        arguments:
+            $processors: !tagged_iterator 'app.file_processor'
+
     App\Storage\MySQLStorage:
         class: App\Storage\MySQLStorage
         arguments: ['@doctrine.orm.entity_manager']
         public: true
 
-    App\Command\ProcessXmlCommand:
-        arguments:
-            $xmlFile: '%xml_file%'
-            $storageRegistry: '@App\Storage\StorageRegistry'
-        tags:
-            - {name: 'console.command'}
-        public: true
-
     App\Storage\StorageRegistry:
         class: App\Storage\StorageRegistry
         public: true
-        arguments: ['@service_container']
-        calls:
-            - method: addStorage
-              arguments: ['mysql', 'App\Storage\MySQLStorage']
+        arguments:
+            $storages:
+                mysql: '@App\Storage\MySQLStorage'
+
+    App\Command\ProcessFileCommand:
+        arguments:
+            $fileProcessorFactory: '@App\Service\FileProcessing\FileProcessorFactory'
+            $storageRegistry: '@App\Storage\StorageRegistry'
+        tags:
+            - {name: 'console.command'}
